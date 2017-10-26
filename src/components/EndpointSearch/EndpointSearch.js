@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import apiKey from '../../utilities/apiKey';
 
 export default class EndpointSearch extends Component {
-  constructor (props) {
-    super (props)
+  constructor(props) {
+    super(props);
     this.state = {
       searchField: '',
       shouldRenderMap: false,
-      queryLocation: '',
-    }
+      queryLocation: ''
+    };
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
   }
 
   handleChange(event) {
     this.setState({
-      searchField: event.target.value,
+      searchField: event.target.value
     });
   }
 
@@ -27,7 +28,7 @@ export default class EndpointSearch extends Component {
     this.setState({
       shouldRenderMap: true,
       queryLocation: this.state.searchField
-    })
+    });
   }
 
   renderMap() {
@@ -43,10 +44,11 @@ export default class EndpointSearch extends Component {
           width="400"
           height="300"
           frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAs63HJ3WYKWwiofrl8UNh8fSa9lIUVT8w
+          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}
             &q=${this.state.queryLocation}`}
           title="YourLocationMap">
-      </iframe>)
+        </iframe>
+      );
     }
   }
 
@@ -54,19 +56,19 @@ export default class EndpointSearch extends Component {
     return (
       <article
         className={this.props.className}>
-          <h2>{this.props.searchTitle}</h2>
-          <input
-            onChange={this.handleChange}
-            value={this.state.searchField} />
-          <button
-            onClick={this.getData} > Find Location </button>
-          {this.renderMap()}
+        <h2>{this.props.searchTitle}</h2>
+        <input
+          onChange={this.handleChange}
+          value={this.state.searchField} />
+        <button
+          onClick={this.getData} > Find Location </button>
+        {this.renderMap()}
       </article>
-    )
+    );
   }
 }
 
-EndpointSearch.propType = {
+EndpointSearch.propTypes = {
   className: PropTypes.string,
   searchTitle: PropTypes.string
-}
+};
