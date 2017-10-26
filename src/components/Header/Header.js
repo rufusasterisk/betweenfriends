@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './style.css';
 import TabButton from '../TabButton/TabButton';
 
@@ -11,7 +11,7 @@ const Header = () => {
       <TabButton
         className={"Create User"} />
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
