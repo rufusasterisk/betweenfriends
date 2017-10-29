@@ -9,8 +9,8 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 const devTools =
-  window.__REDUX_DEVTOOLS_EXTENSION___ &&
-  window.__REDUX_DEVTOOLS_EXTENSION___();
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+  window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(rootReducer, devTools, applyMiddleware(thunk));
 
 ReactDOM.render(
