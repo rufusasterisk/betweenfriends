@@ -1,4 +1,4 @@
-export const yourLocation = (state = '', action) => {
+export const yourTextLocation = (state = '', action) => {
   switch (action.type) {
   case 'UPDATE_LOCATION': {
     if (action.locationType === 'Your'){

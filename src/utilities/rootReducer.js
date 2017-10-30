@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import {
-  yourLocation,
+  yourTextLocation,
   friendLocation,
   loadYourMap,
   loadFriendMap } from '../reducers/EndpointSearchReducers';
 
 
 const rootReducer = combineReducers({
-  yourLocation,
+  yourTextLocation,
   friendLocation,
   loadYourMap,
   loadFriendMap
