@@ -15,8 +15,8 @@ const mapDispatchtoProps = dispatch => ({
   updateIndividualLocation: (location, locationType) => {
     dispatch(updateIndividualLocation(location, locationType));
   },
-  shouldLoadMap: (option, mapType) => {
-    dispatch(shouldLoadMap(option, mapType));
+  shouldLoadMap: (option, locationType) => {
+    dispatch(shouldLoadMap(option, locationType));
   }
 });
 
