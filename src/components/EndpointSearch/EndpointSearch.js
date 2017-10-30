@@ -13,8 +13,6 @@ export default class EndpointSearch extends Component {
   }
 
   handleChange(event) {
-    console.log('handleChange!!');
-    console.log(this.state);
     this.setState({
       searchField: event.target.value
     });
@@ -25,12 +23,10 @@ export default class EndpointSearch extends Component {
     return this.props !== nextProps || (this.state = nextState);
   }
 =======
-  // shouldComponentUpdate(nextProps) {
-  //   console.log(this.props);
-  //   console.log(nextProps);
-  //   return this.props !== nextProps;
-  // }
->>>>>>> refactor for redux dispatch
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props !== nextProps || (this.state = nextState);
+  }
+>>>>>>> Finish basic redux implementation
 
   getData() {
     // if ( this.state.searchField === '') {
