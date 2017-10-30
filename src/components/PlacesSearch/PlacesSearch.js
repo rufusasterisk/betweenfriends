@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import locationCleaner from '../../utilities/locationCleaner';
 
 export default class PlacesSearch extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class PlacesSearch extends Component {
     this.props.submitPlacesSearch({
 
     });
+    console.log(locationCleaner(this.state.searchField));
   }
 
   handleRadio(event) {

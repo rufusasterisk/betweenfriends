@@ -5,7 +5,7 @@ import {
   shouldLoadMap } from '../../actions/EndpointSearchActions';
 
 const mapStatetoProps = store => ({
-  yourLocation: store.yourLocation,
+  yourTextLocation: store.yourTextLocation,
   friendLocation: store.friendLocation,
   loadYourMap: store.loadYourMap,
   loadFriendMap: store.loadFriendMap
