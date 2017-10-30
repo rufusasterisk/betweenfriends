@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import EndpointSearch from '../EndpointSearch/EndpointSearch';
 import EndpointSearchContainer from
   '../../redux-containers/EndpointSearchContainer/EndpointSearchContainer';
 import Header from '../Header/Header';

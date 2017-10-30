@@ -6,27 +6,21 @@ export default class EndpointSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchField: '',
-      shouldRenderMap: false,
-      queryLocation: ''
+      searchField: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.getData = this.getData.bind(this);
   }
 
   handleChange(event) {
-    console.log('handleChange!!');
-    console.log(this.state);
     this.setState({
       searchField: event.target.value
     });
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   console.log(this.props);
-  //   console.log(nextProps);
-  //   return this.props !== nextProps;
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props !== nextProps || (this.state = nextState);
+  }
 
   getData() {
     // if ( this.state.searchField === '') {
@@ -42,7 +36,6 @@ export default class EndpointSearch extends Component {
       this.state.searchField, this.props.locationType
     );
     this.props.shouldLoadMap(true, this.props.locationType);
-    console.log(this.props);
   }
 
   renderMap() {
@@ -52,15 +45,15 @@ export default class EndpointSearch extends Component {
     // if (this.state.dataFailure) {
     //   return (<h4>There was a problem with your request.</h4>);
     // }
-    if (this.state[`load${this.props.locationType}Map`]) {
+    if (this.props[`load${this.props.locationType}Map`]) {
       return (
         <iframe
           width="400"
           height="300"
           frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}
-            &q=${this.state.queryLocation}`}
-          title="YourLocationMap">
+          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=
+          ${this.props[`${(this.props.locationType).toLowerCase()}Location`]}`}
+          title={`${this.props.locationType}LocationMap`}>
         </iframe>
       );
     }
@@ -75,7 +68,7 @@ export default class EndpointSearch extends Component {
           onChange={this.handleChange}
           value={this.state.searchField} />
         <button
-          onClick={this.getData} > Find Location </button>
+          onClick={this.getData}>Find Location</button>
         {this.renderMap()}
       </article>
     );
