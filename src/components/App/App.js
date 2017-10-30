@@ -4,6 +4,7 @@ import './App.css';
 import EndpointSearchContainer from
   '../../redux-containers/EndpointSearchContainer/EndpointSearchContainer';
 import Header from '../Header/Header';
+import PlacesSearch from '../PlacesSearch/PlacesSearch'
 
 class App extends Component {
   render() {
@@ -16,6 +17,8 @@ class App extends Component {
         <EndpointSearchContainer
           className={'friend-location'}
           locationType={`Friend`} />
+        <PlacesSearch
+          submitPlacesSearch={ ()=>{}} />
       </div>
     );
   }
