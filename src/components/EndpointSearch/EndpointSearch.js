@@ -44,7 +44,7 @@ export default class EndpointSearch extends Component {
   render() {
     return (
       <article
-        className={this.props.className}>
+        className={`${this.props.className}${this.props.displayMap ? ' entered' : ''}`}>
         <h2>{this.props.locationType} Location</h2>
         <input
           onChange={this.handleChange}

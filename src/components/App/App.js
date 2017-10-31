@@ -17,15 +17,17 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <YourEndpointSearchContainer
-          className={'your-location'}
-          locationType={'Your'} />
-        <FriendEndpointSearchContainer
-          className={'friend-location'}
-          locationType={`Friend`} />
-        <MapContainer />
-        {/* <PlacesSearch
-          submitPlacesSearch={ ()=>{}} /> */}
+        <main>
+          <YourEndpointSearchContainer
+            className={'your-location'}
+            locationType={'Your'} />
+          <FriendEndpointSearchContainer
+            className={'friend-location'}
+            locationType={`Friend`} />
+          <MapContainer />
+          {/* <PlacesSearch
+                submitPlacesSearch={ ()=>{}} /> */}
+        </main>
       </div>
     );
   }

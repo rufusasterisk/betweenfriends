@@ -48,7 +48,7 @@ export default class MainMap extends Component {
 
   render() {
     return (
-      <section>
+      <section className='main-map'>
         <PlacesSearch
           submitPlacesSearch={ ()=>{}} />
       MAIN MAP COMPONENT

@@ -38,7 +38,8 @@ export default class PlacesSearch extends Component {
 
   render() {
     return (
-      <form>
+      <form
+        className='places-search'>
         <input
           onChange={this.handleChange}
           onClick={this.props.submitPlacesSearch}
