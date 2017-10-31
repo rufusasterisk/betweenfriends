@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import apiKey from '../../utilities/apiKey';
+import { apiKey } from '../../utilities/apiKey';
 
 export default class EndpointSearch extends Component {
   constructor(props) {

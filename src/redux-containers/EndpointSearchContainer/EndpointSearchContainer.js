@@ -4,6 +4,8 @@ import {
   updateIndividualLocation,
   shouldLoadMap } from '../../actions/EndpointSearchActions';
 
+console.log('endpoint container:', this.props);
+
 const mapStatetoProps = store => ({
   yourTextLocation: store.yourTextLocation,
   friendLocation: store.friendLocation,
