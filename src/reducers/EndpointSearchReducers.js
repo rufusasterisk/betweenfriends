@@ -2,7 +2,7 @@ export const yourTextLocation = (state = '', action) => {
   switch (action.type) {
   case 'UPDATE_LOCATION': {
     if (action.locationType === 'Your'){
-      return action.location;
+      return action.locationString;
     } else {
       return state;
     }
@@ -68,7 +68,7 @@ export const friendTextLocation = (state = '', action) => {
   switch (action.type) {
   case 'UPDATE_LOCATION': {
     if (action.locationType === 'Friend'){
-      return action.location;
+      return action.locationString;
     } else {
       return state;
     }
