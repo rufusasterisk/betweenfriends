@@ -18,15 +18,9 @@ export default class EndpointSearch extends Component {
     });
   }
 
-<<<<<<< HEAD
   shouldComponentUpdate(nextProps, nextState) {
     return this.props !== nextProps || (this.state = nextState);
   }
-=======
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props !== nextProps || (this.state = nextState);
-  }
->>>>>>> Finish basic redux implementation
 
   getData() {
     this.props.getMap(this.state.searchField);
