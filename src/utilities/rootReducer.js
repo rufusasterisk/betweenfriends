@@ -9,20 +9,26 @@ import {
   friendGPSLocation,
   loadingFriendMap,
   displayFriendMap,
-  loadFriendMapFailure } from '../reducers/EndpointSearchReducers';
+  loadFriendMapFailure,
+  mainGPSLocation,
+  displayMainMap } from '../reducers/EndpointSearchReducers';
 
 
-const rootReducer = combineReducers({
-  yourTextLocation,
-  yourGPSLocation,
-  loadingYourMap,
-  displayYourMap,
-  loadYourMapFailure,
-  friendTextLocation,
-  friendGPSLocation,
-  loadingFriendMap,
-  displayFriendMap,
-  loadFriendMapFailure
-});
+const rootReducer = combineReducers(
+  {
+    yourTextLocation,
+    yourGPSLocation,
+    loadingYourMap,
+    displayYourMap,
+    loadYourMapFailure,
+    friendTextLocation,
+    friendGPSLocation,
+    loadingFriendMap,
+    displayFriendMap,
+    loadFriendMapFailure,
+    mainGPSLocation,
+    displayMainMap
+  }
+);
 
 export default rootReducer;

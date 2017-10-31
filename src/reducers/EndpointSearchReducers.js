@@ -129,3 +129,21 @@ export const loadFriendMapFailure = (state = false, action) => {
     return state;
   }
 };
+
+export const mainGPSLocation = (state = {lat: 0, lng: 0}, action) => {
+  switch (action.type) {
+  case 'SET_GPS_LOCATION':
+    return action.locationType === 'main' ? action.GPS : state;
+  default:
+    return state;
+  }
+};
+
+export const displayMainMap = (state = false, action) => {
+  switch (action.type) {
+  case 'DISPLAY_INDIVIDUAL_MAP':
+    return action.locationType === 'main' ? action.option : state;
+  default:
+    return state;
+  }
+};
