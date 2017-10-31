@@ -1,16 +1,34 @@
 import { combineReducers } from 'redux';
 import {
-  yourLocation,
-  friendLocation,
-  loadYourMap,
-  loadFriendMap } from '../reducers/EndpointSearchReducers';
+  yourTextLocation,
+  yourGPSLocation,
+  loadingYourMap,
+  displayYourMap,
+  loadYourMapFailure,
+  friendTextLocation,
+  friendGPSLocation,
+  loadingFriendMap,
+  displayFriendMap,
+  loadFriendMapFailure,
+  mainGPSLocation,
+  displayMainMap } from '../reducers/EndpointSearchReducers';
 
 
-const rootReducer = combineReducers({
-  yourLocation,
-  friendLocation,
-  loadYourMap,
-  loadFriendMap
-});
+const rootReducer = combineReducers(
+  {
+    yourTextLocation,
+    yourGPSLocation,
+    loadingYourMap,
+    displayYourMap,
+    loadYourMapFailure,
+    friendTextLocation,
+    friendGPSLocation,
+    loadingFriendMap,
+    displayFriendMap,
+    loadFriendMapFailure,
+    mainGPSLocation,
+    displayMainMap
+  }
+);
 
 export default rootReducer;
