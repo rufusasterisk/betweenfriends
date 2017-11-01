@@ -1,8 +1,19 @@
+/*@import url('https://fonts.googleapis.com/css??family=BioRhyme:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css??family=Bungee:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css??family=Fruktur:regular,bold,italic&subset=latin,latin-ext');
+@fontface {
+  font-family: 'Bungee Shade', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Bungee+Inline')
+}*/
+
 header {
   text-align: left;
 }
 
 h1 {
+  font-family: 'BioRhyme', sans-serif;
+  font-weight: bold;
+  font-size: 60px;
   background-color: #fff;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
@@ -11,15 +22,16 @@ h1 {
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 100px;
-  padding-left: 25px;
+  padding-left: 30px;
   padding-top: 10px;
   padding-bottom: 10px;
   position: absolute;
   top: 0;
   left: 0;
+  line-height: 1em;
 }
 
 span {
   display: block;
-  padding-left: 25px;
+  padding-left: 75px;
 }
