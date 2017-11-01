@@ -11,11 +11,15 @@ export default class TabButton extends Component {
 
   render() {
     return (
-      <button>click me!</button>
+      <button
+        className={this.props.className}>
+        {this.props.title}</button>
     );
   }
 }
 
 TabButton.propTypes = {
-  isExpanded: PropTypes.bool
+  isExpanded: PropTypes.bool,
+  className: PropTypes.string,
+  title: PropTypes.string
 };
