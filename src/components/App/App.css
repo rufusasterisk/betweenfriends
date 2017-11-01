@@ -15,6 +15,7 @@ main {
 }
 
 .your-location {
+  position: absolute;
   background-color: green;
   /*grid-column-start: 1;
   grid-column-end: 7;
@@ -24,6 +25,10 @@ main {
   width: 20%;
   transform: translate(200%, 85%);
   /*transform: scaleY(40%);*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .your-location.entered {
@@ -31,7 +36,7 @@ main {
   height: 100%;
   transform: none;
   transition: height 2s, transform 1s;
-  position: absolute;
+  /*position: absolute;*/
 }
 
 .friend-location {
@@ -39,7 +44,27 @@ main {
   right: 0;
   width: 20%;
   height: 20%;
-  transform: translate(-200%, 85%);
+  transform: translate(-200%, 185%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+ padding: 5px;
+}
+
+form input {
+  font-size: 20px;
+}
+
+form button {
+
+}
+
+form h2 {
+  margin: 0;
 }
 
 .friend-location.entered {
@@ -47,6 +72,30 @@ main {
   height: 100%;
   transform: none;
   transition: height 2s, transform 2s;
+}
+
+/*.main-map {
+  background-color: #eef;
+  display: inline-block;
+  position: absolute;
+  min-width: 60%;
+  min-height: 100%;
+}*/
+
+.main-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.places-search {
+  position: absolute;
+  background-color: #BADA55;
+  z-index: 5;
+  width: 33.33333%;
+  transform: translate(110%, 400%);
 }
 
 /*main::before {
@@ -58,9 +107,9 @@ main {
   grid-column-end: 11;
   grid-row-start: 3;
   grid-row-end: 12;
-}*/
+}
 
-/*main::before {
+main::before {
   background-color: green;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -69,19 +118,19 @@ main {
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 14;
-}*/
+}
 
 
-/*main:hover::before {
+main:hover::before {
   border-radius: 0;
   grid-column-start: 1;
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 14;
   transition: all 500ms ease;
-}*/
+}
 
-/*main::after {
+main::after {
   background-color: orange;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
@@ -100,10 +149,11 @@ main {
   grid-row-end: 9;*/
 }
 
-.places-search,
 .main-map {
-  /*grid-column-start: 11;
-  grid-column-end: 15;
-  grid-row-start: 9;
-  grid-row-end: 12;*/
+  background-color: #eef;
+  margin: auto;
+  min-height: 100%;
+  width: 60%;
+  position: relative;
+  z-index: -1;
 }
