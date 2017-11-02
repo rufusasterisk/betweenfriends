@@ -62,6 +62,9 @@ form button {
 form h2 {
   font-family: BioRhyme;
   margin: 0;
+  line-height: 1em;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 h5 {
@@ -90,6 +93,11 @@ h5 {
   width: 20%;
   height: 20%;
   transform: translate(200%, 285%);
+  border-radius: 0 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-map {
@@ -99,4 +107,9 @@ h5 {
   width: 60%;
   position: relative;
   z-index: -1;
+}
+
+h2 span {
+  display: block;
+  padding-left: 30px;
 }

@@ -41,7 +41,7 @@ export default class PlacesSearch extends Component {
       <article
         className='places-search'>
         <form>
-          <h2 className='places-header'>What</h2>
+          <h2 className='places-header'>What's<span> Between Friends?</span></h2>
           <input
             onChange={this.handleChange}
             onClick={this.props.submitPlacesSearch}
@@ -49,39 +49,41 @@ export default class PlacesSearch extends Component {
           <button
             onClick={this.handleClick}
             value={'Search!'}>Search!</button>
-          <h5>Extra Radius</h5>
-          <label>
-            <input
-              checked={this.state.extraRadius === '0'}
-              name='extraRadius'
-              onChange={this.handleRadio}
-              type='radio'
-              value='0' /> 0 ft
-          </label>
-          <label>
-            <input
-              checked={this.state.extraRadius === '0.1'}
-              name='extraRadius'
-              onChange={this.handleRadio}
-              type='radio'
-              value='0.1' /> 500 ft
-          </label>
-          <label>
-            <input
-              checked={this.state.extraRadius === '0.5'}
-              name='extraRadius'
-              onChange={this.handleRadio}
-              type='radio'
-              value='0.5' /> 0.5 mi
-          </label>
-          <label>
-            <input
-              checked={this.state.extraRadius === '1'}
-              name='extraRadius'
-              onChange={this.handleRadio}
-              type='radio'
-              value='1' /> 1 mi
-          </label>
+          <div className={'radio-container'}>
+            <h5>Extra Radius</h5>
+            <label>
+              <input
+                checked={this.state.extraRadius === '0'}
+                name='extraRadius'
+                onChange={this.handleRadio}
+                type='radio'
+                value='0' /> 0 ft
+            </label>
+            <label>
+              <input
+                checked={this.state.extraRadius === '0.1'}
+                name='extraRadius'
+                onChange={this.handleRadio}
+                type='radio'
+                value='0.1' /> 500 ft
+            </label>
+            <label>
+              <input
+                checked={this.state.extraRadius === '0.5'}
+                name='extraRadius'
+                onChange={this.handleRadio}
+                type='radio'
+                value='0.5' /> 0.5 mi
+            </label>
+            <label>
+              <input
+                checked={this.state.extraRadius === '1'}
+                name='extraRadius'
+                onChange={this.handleRadio}
+                type='radio'
+                value='1' /> 1 mi
+            </label>    
+          </div>
         </form>
       </article>
     );
