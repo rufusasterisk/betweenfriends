@@ -1,21 +1,56 @@
+/*@import url('https://fonts.googleapis.com/css??family=BioRhyme:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css??family=Bungee:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css??family=Fruktur:regular,bold,italic&subset=latin,latin-ext');
+@fontface {
+  font-family: 'Bungee Shade', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Bungee+Inline')
+}*/
+
 header {
   text-align: left;
 }
 
 h1 {
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  font-family: 'BioRhyme', serif;
+  font-weight: bold;
+  font-size: 60px;
+  background-color: #fff;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
   border-radius: 0px 0px 30px 0px;
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 100px;
-  padding-left: 25px;
+  padding-left: 30px;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 1em;
 }
 
 span {
   display: block;
-  padding-left: 25px;
+  padding-left: 75px;
+}
+
+.tab-container {
+  position: absolute;
+  min-width: 20%;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-container button {
+  font-family: 'BioRhyme', serif;
+  font-size: 20px;
+  min-width: 150px;
+  border-top: 0;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-radius: 0 0 30px 30px;
 }

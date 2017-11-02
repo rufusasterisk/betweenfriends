@@ -33,8 +33,8 @@ export default class MainMap extends Component {
     if (this.props.displayMainMap) {
       return (
         <iframe
-          width="400"
-          height="300"
+          width="800"
+          height="600"
           frameBorder="0" style={{border: 0}}
           src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=
           ${this.props.mainGPSLocation.lat}, ${this.props.mainGPSLocation.lng}&zoom=18`}
@@ -42,16 +42,16 @@ export default class MainMap extends Component {
         </iframe>
       );
     } else {
-      return (<div>pp</div>);
+      return;
     }
   }
 
+  // <div>pp</div>
+
   render() {
     return (
-      <section>
-        <PlacesSearch
-          submitPlacesSearch={ ()=>{}} />
-      MAIN MAP COMPONENT
+      <section className='main-map'>
+        {/* MAIN MAP COMPONENT */}
         {this.renderMap()}
       </section>
     );

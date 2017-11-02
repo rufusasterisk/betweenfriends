@@ -22,7 +22,8 @@ export default class EndpointSearch extends Component {
     return this.props !== nextProps || (this.state = nextState);
   }
 
-  getData() {
+  getData(event) {
+    event.preventDefault();
     this.props.getMap(this.state.searchField);
   }
 
@@ -30,8 +31,8 @@ export default class EndpointSearch extends Component {
     if (this.props.displayMap) {
       return (
         <iframe
-          width="400"
-          height="300"
+          width="300"
+          height="200"
           frameBorder="0" style={{border: 0}}
           src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=
           ${this.props.textLocation}`}
@@ -44,13 +45,15 @@ export default class EndpointSearch extends Component {
   render() {
     return (
       <article
-        className={this.props.className}>
-        <h2>{this.props.locationType} Location</h2>
-        <input
-          onChange={this.handleChange}
-          value={this.state.searchField} />
-        <button
-          onClick={this.getData}>Find Location</button>
+        className={`${this.props.className}${this.props.displayMap ? ' entered' : ''}`}>
+        <form>
+          <h2>{this.props.locationType}<span> Location</span></h2>
+          <input
+            onChange={this.handleChange}
+            value={this.state.searchField} />
+          <button
+            onClick={this.getData}>Find Location</button>
+        </form>
         {this.renderMap()}
       </article>
     );
