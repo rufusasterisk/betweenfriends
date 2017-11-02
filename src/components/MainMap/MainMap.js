@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PlacesSearch from '../PlacesSearch/PlacesSearch';
+// import PlacesSearch from '../PlacesSearch/PlacesSearch';
 import { PropTypes } from 'prop-types';
 import { apiKey } from '../../utilities/apiKey';
+import MyMapComponent from '../MyGoogleMap/MyGoogleMap';
 
 export default class MainMap extends Component {
   constructor(props) {
@@ -51,8 +52,8 @@ export default class MainMap extends Component {
   render() {
     return (
       <section className='main-map'>
-        {/* MAIN MAP COMPONENT */}
-        {this.renderMap()}
+        {/* {this.renderMap()} */}
+        <MyMapComponent isMarkerShown />
       </section>
     );
   }

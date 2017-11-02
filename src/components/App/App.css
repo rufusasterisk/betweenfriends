@@ -78,7 +78,8 @@ h5 {
   transition: height 0.5s, transform 1s;
 }
 
-.main-map iframe {
+.main-map iframe,
+.my-google-map {
   position: absolute;
   top: 0;
   left: 0;
