@@ -10,20 +10,24 @@ export default class MainMap extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( (nextProps.displayYourMap && nextProps.displayFriendMap) &&
-    (nextProps.displayYourMap !== this.props.displayYourMap ||
-       nextProps.displayFriendMap !== this.props.displayFriendMap) ){
-      this.updateStatus();
+    if ( nextProps.displayYourMap && nextProps.displayFriendMap &&
+    (nextProps.yourGPSLocation !== this.props.yourGPSLocation ||
+       nextProps.friendGPSLocation !== this.props.friendGPSLocation) ){
+      this.updateStatus(nextProps);
     }
   }
 
-  updateStatus() {
+  shouldComponentUpdate(nextProps) {
+    return this.props !== nextProps;
+  }
+
+  updateStatus(nextProps) {
     // if (this.props.displayYourMap && this.props.displayFriendMap) {
     const mainMapGPSObject = {
-      lat: (this.props.yourGPSLocation.lat +
-        this.props.friendGPSLocation.lat)/2,
-      lng: (this.props.yourGPSLocation.lng +
-        this.props.friendGPSLocation.lng)/2
+      lat: (nextProps.yourGPSLocation.lat +
+        nextProps.friendGPSLocation.lat)/2,
+      lng: (nextProps.yourGPSLocation.lng +
+        nextProps.friendGPSLocation.lng)/2
     };
     this.props.setMainMapGPS(mainMapGPSObject);
     this.props.displayMap(true);
@@ -53,7 +57,9 @@ export default class MainMap extends Component {
     return (
       <section className='main-map'>
         {/* {this.renderMap()} */}
-        <MyMapComponent isMarkerShown />
+        <MyMapComponent
+          isMarkerShown
+          center={this.props.center}/>
       </section>
     );
   }
@@ -67,5 +73,6 @@ MainMap.propTypes = {
   displayFriendMap: PropTypes.bool,
   displayMainMap: PropTypes.bool,
   setMainMapGPS: PropTypes.func,
-  displayMap: PropTypes.func
+  displayMap: PropTypes.func,
+  center: PropTypes.object
 };

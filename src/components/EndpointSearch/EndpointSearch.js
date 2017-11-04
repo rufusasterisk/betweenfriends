@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { apiKey } from '../../utilities/apiKey';
+import { embedAPIKey } from '../../utilities/apiKey';
 
 export default class EndpointSearch extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class EndpointSearch extends Component {
           width="300"
           height="200"
           frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=
+          src={`https://www.google.com/maps/embed/v1/place?key=${embedAPIKey}&q=
           ${this.props.textLocation}`}
           title={`${this.props.locationType}LocationMap`}>
         </iframe>

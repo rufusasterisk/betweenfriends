@@ -130,7 +130,7 @@ export const loadFriendMapFailure = (state = false, action) => {
   }
 };
 
-export const mainGPSLocation = (state = {lat: 0, lng: 0}, action) => {
+export const mainGPSLocation = (state = {lat: 39.7508006, lng: -104.9965947}, action) => {
   switch (action.type) {
   case 'SET_GPS_LOCATION':
     return action.locationType === 'main' ? action.GPS : state;

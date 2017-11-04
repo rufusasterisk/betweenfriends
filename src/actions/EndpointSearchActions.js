@@ -43,9 +43,9 @@ export const getMap = (locationString, locationType) => (dispatch) => {
         lng: resultsObject.results[0].geometry.location.lng
       };
       dispatch(updateIndividualLocation(locationString, locationType));
+      dispatch(displayMap(true, locationType));
       dispatch(setGPSLocation(latlngObject, locationType));
       dispatch(shouldLoadMap(false, locationType));
-      dispatch(displayMap(true, locationType));
     })
     .catch(error => {
       alert(error);

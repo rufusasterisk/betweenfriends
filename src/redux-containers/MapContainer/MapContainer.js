@@ -11,7 +11,8 @@ const mapStatetoProps = store => ({
   mainGPSLocation: store.mainGPSLocation,
   displayYourMap: store.displayYourMap,
   displayFriendMap: store.displayFriendMap,
-  displayMainMap: store.displayMainMap
+  displayMainMap: store.displayMainMap,
+  center: store.mainGPSLocation
 });
 
 const mapDispatchtoProps = dispatch => ({
