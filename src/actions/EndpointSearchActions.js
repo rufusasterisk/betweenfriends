@@ -51,13 +51,19 @@ export const getVincentyDistance = (location1GPS, location2GPS) => dispatch => {
     });
 };
 
+export const findMidpoint = (location1GPS, location2GPS) => ({
+  lat: (location1GPS.lat + location2GPS.lat)/2,
+  lng: (location1GPS.lng + location2GPS.lng)/2
+});
+
 export const computeMainMap = (location1GPS, location2GPS) => dispatch => {
-  const mainMapCenterGPS = {
-    lat: (location1GPS.lat +
-      location2GPS.lat)/2,
-    lng: (location1GPS.lng +
-      location2GPS.lng)/2
-  };
+  const mainMapCenterGPS = findMidpoint(location1GPS, location2GPS);
+  // {
+  //   lat: (location1GPS.lat +
+  //     location2GPS.lat)/2,
+  //   lng: (location1GPS.lng +
+  //     location2GPS.lng)/2
+  // };
   dispatch(setGPSLocation(mainMapCenterGPS, 'main'));
   const distance = getVincentyDistanceSync(location1GPS, location2GPS);
   dispatch(setDistance(distance));
@@ -65,16 +71,27 @@ export const computeMainMap = (location1GPS, location2GPS) => dispatch => {
   dispatch(setBounds(bounds));
 };
 
-export const computeMapBounds = (mainMapCenterGPS, distance) => ({
-  nw: vincenty.destVincenty(
+export const computeMapBounds = (mainMapCenterGPS, distance) => {
+  const nwRaw = vincenty.destVincenty(
     mainMapCenterGPS.lat,
     mainMapCenterGPS.lng,
-    45, distance/Math.sqrt(2)),
-  se: vincenty.destVincenty(
+    45, distance/Math.sqrt(2));
+  const seRaw = vincenty.destVincenty(
     mainMapCenterGPS.lat,
     mainMapCenterGPS.lng,
-    225, distance/Math.sqrt(2))
-});
+    225, distance/Math.sqrt(2));
+
+  return (
+    {
+      nw: {
+        lat: nwRaw.lat,
+        lng: nwRaw.lon },
+      se: {
+        lat: seRaw.lat,
+        lng: seRaw.lon
+      }
+    });
+};
 
 export const setBounds = (bounds) => ({
   type: 'SET_MAP_BOUNDS',
