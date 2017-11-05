@@ -147,3 +147,12 @@ export const displayMainMap = (state = false, action) => {
     return state;
   }
 };
+
+export const vincentyDistance = (state = 0, action) => {
+  switch (action.type) {
+  case 'SET_DISTANCE':
+    return action.distance;
+  default:
+    return state;
+  }
+};

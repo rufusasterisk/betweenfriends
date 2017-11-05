@@ -30,6 +30,9 @@ export default class MainMap extends Component {
         nextProps.friendGPSLocation.lng)/2
     };
     this.props.setMainMapGPS(mainMapGPSObject);
+    this.props.getVincentyDistance(
+      nextProps.yourGPSLocation,
+      nextProps.friendGPSLocation);
     this.props.displayMap(true);
     // }
   }
@@ -51,15 +54,16 @@ export default class MainMap extends Component {
     }
   }
 
-  // <div>pp</div>
-
   render() {
     return (
       <section className='main-map'>
         {/* {this.renderMap()} */}
         <MyMapComponent
           isMarkerShown
-          center={this.props.center}/>
+          center={this.props.center}
+          vincentyDistance={this.props.vincentyDistance}
+          yourGPSLocation={this.props.yourGPSLocation}
+          friendGPSLocation={this.props.friendGPSLocation}/>
       </section>
     );
   }
@@ -74,5 +78,7 @@ MainMap.propTypes = {
   displayMainMap: PropTypes.bool,
   setMainMapGPS: PropTypes.func,
   displayMap: PropTypes.func,
-  center: PropTypes.object
+  center: PropTypes.object,
+  getVincentyDistance: PropTypes.func,
+  vincentyDistance: PropTypes.number
 };

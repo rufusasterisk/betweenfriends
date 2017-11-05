@@ -1,5 +1,6 @@
 import locationCleaner from '../utilities/locationCleaner';
 import { latlngAPIKey } from '../utilities/apiKey';
+import vincenty from 'node-vincenty';
 
 export const updateIndividualLocation = (locationString, locationType) => ({
   type: 'UPDATE_LOCATION',
@@ -30,6 +31,19 @@ export const loadMapFailure = (option, locationType) => ({
   option,
   locationType
 });
+
+const setDistance = (distance) => ({
+  type: 'SET_DISTANCE',
+  distance
+});
+
+export const getVincentyDistance = (location1GPS, location2GPS) => dispatch => {
+  console.log('running Vincenty');
+  vincenty.distVincenty(location1GPS.lat, location1GPS.lng,
+    location2GPS.lat, location2GPS.lng, function (distance) {
+      dispatch(setDistance(distance));
+    });
+};
 
 export const getMap = (locationString, locationType) => (dispatch) => {
   dispatch(shouldLoadMap(true, locationType));

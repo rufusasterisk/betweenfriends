@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import {
   setGPSLocation,
-  displayMap } from '../../actions/EndpointSearchActions';
+  displayMap,
+  getVincentyDistance } from '../../actions/EndpointSearchActions';
 
 import MainMap from '../../components/MainMap/MainMap';
 
@@ -12,7 +13,8 @@ const mapStatetoProps = store => ({
   displayYourMap: store.displayYourMap,
   displayFriendMap: store.displayFriendMap,
   displayMainMap: store.displayMainMap,
-  center: store.mainGPSLocation
+  center: store.mainGPSLocation,
+  vincentyDistance: store.vincentyDistance
 });
 
 const mapDispatchtoProps = dispatch => ({
@@ -21,6 +23,9 @@ const mapDispatchtoProps = dispatch => ({
   },
   displayMap: (option) => {
     dispatch(displayMap(option, 'main'));
+  },
+  getVincentyDistance: (yourGPSLocation, friendGPSLocation) => {
+    dispatch(getVincentyDistance(yourGPSLocation, friendGPSLocation));
   }
 });
 
