@@ -63,7 +63,9 @@ export default class MainMap extends Component {
           center={this.props.center}
           vincentyDistance={this.props.vincentyDistance}
           yourGPSLocation={this.props.yourGPSLocation}
-          friendGPSLocation={this.props.friendGPSLocation}/>
+          displayYourMap={this.props.displayYourMap}
+          friendGPSLocation={this.props.friendGPSLocation}
+          displayFriendMap={this.props.displayFriendMap}/>
       </section>
     );
   }

@@ -25,9 +25,11 @@ const MyMapComponent = compose(
     {props.isMarkerShown &&
       <Circle
         center={props.center}
-        radius={props.vincentyDistance/2} /> &&
+        radius={props.vincentyDistance/2} /> }
+    {props.displayYourMap &&
       <Marker
-        position={props.yourGPSLocation} /> &&
+        position={props.yourGPSLocation} /> }
+    {props.displayFriendMap &&
       <Marker
         position={props.friendGPSLocation} /> }
   </GoogleMap>
@@ -38,7 +40,9 @@ MyMapComponent.propTypes = {
   yourGPSLocation: PropTypes.object,
   friendGPSLocation: PropTypes.object,
   center: PropTypes.object,
-  vincentyDistance: PropTypes.number
+  vincentyDistance: PropTypes.number,
+  displayYourMap: PropTypes.bool,
+  displayFriendMap: PropTypes.bool
 };
 
 export default MyMapComponent;
