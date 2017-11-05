@@ -28,10 +28,12 @@ const MyMapComponent = compose(
         radius={props.vincentyDistance/2} /> }
     {props.displayYourMap &&
       <Marker
-        position={props.yourGPSLocation} /> }
+        position={props.yourGPSLocation}
+        label="Your Location"/> }
     {props.displayFriendMap &&
       <Marker
-        position={props.friendGPSLocation} /> }
+        position={props.friendGPSLocation}
+        label="Friend Location" /> }
   </GoogleMap>
 );
 
