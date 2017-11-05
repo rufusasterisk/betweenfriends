@@ -156,3 +156,14 @@ export const vincentyDistance = (state = 0, action) => {
     return state;
   }
 };
+
+export const mapBounds = (state = {
+  sw: {lat: 0, lng: 0},
+  ne: {lat: 0, lng: 0}}, action) => {
+  switch (action.type) {
+  case 'SET_MAP_BOUNDS':
+    return action.bounds;
+  default:
+    return state;
+  }
+};

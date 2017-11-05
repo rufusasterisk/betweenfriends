@@ -32,18 +32,54 @@ export const loadMapFailure = (option, locationType) => ({
   locationType
 });
 
-const setDistance = (distance) => ({
+export const setDistance = (distance) => ({
   type: 'SET_DISTANCE',
   distance
 });
+
+export const getVincentyDistanceSync = (location1GPS, location2GPS) => {
+  return vincenty.distVincenty(location1GPS.lat, location1GPS.lng,
+    location2GPS.lat, location2GPS.lng).distance;
+};
 
 export const getVincentyDistance = (location1GPS, location2GPS) => dispatch => {
   console.log('running Vincenty');
   vincenty.distVincenty(location1GPS.lat, location1GPS.lng,
     location2GPS.lat, location2GPS.lng, function (distance) {
       dispatch(setDistance(distance));
+      // dispatch(computeMapBounds(location1GPS, location2GPS, distance));
     });
 };
+
+export const computeMainMap = (location1GPS, location2GPS) => dispatch => {
+  const mainMapCenterGPS = {
+    lat: (location1GPS.lat +
+      location2GPS.lat)/2,
+    lng: (location1GPS.lng +
+      location2GPS.lng)/2
+  };
+  dispatch(setGPSLocation(mainMapCenterGPS, 'main'));
+  const distance = getVincentyDistanceSync(location1GPS, location2GPS);
+  dispatch(setDistance(distance));
+  const bounds = computeMapBounds(mainMapCenterGPS, distance);
+  dispatch(setBounds(bounds));
+};
+
+export const computeMapBounds = (mainMapCenterGPS, distance) => ({
+  nw: vincenty.destVincenty(
+    mainMapCenterGPS.lat,
+    mainMapCenterGPS.lng,
+    45, distance/Math.sqrt(2)),
+  se: vincenty.destVincenty(
+    mainMapCenterGPS.lat,
+    mainMapCenterGPS.lng,
+    225, distance/Math.sqrt(2))
+});
+
+export const setBounds = (bounds) => ({
+  type: 'SET_MAP_BOUNDS',
+  bounds
+});
 
 export const getMap = (locationString, locationType) => (dispatch) => {
   dispatch(shouldLoadMap(true, locationType));
