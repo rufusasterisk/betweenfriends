@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-// import EndpointSearchContainer from
-//   '../../redux-containers/EndpointSearchContainer/EndpointSearchContainer';
 import YourEndpointSearchContainer from
-  '../../redux-containers/EndpointSearchContainer/YourEndpointSearchContainer';
+  '../../redux-containers/EndpointContainer/YourEndpointSearchContainer';
 import FriendEndpointSearchContainer from
-  '../../redux-containers/EndpointSearchContainer/FriendEndpointSearchContainer';
-import PlacesSearch from '../PlacesSearch/PlacesSearch';
-
-import Header from '../Header/Header';
+  '../../redux-containers/EndpointContainer/FriendEndpointSearchContainer';
 // import PlacesSearch from '../PlacesSearch/PlacesSearch';
+import PlacesSearchContainer from
+  '../../redux-containers/PlacesSearchContainer/PlacesSearchContainer';
+import Header from '../Header/Header';
 import MapContainer from '../../redux-containers/MapContainer/MapContainer';
 
 class App extends Component {
@@ -25,11 +22,10 @@ class App extends Component {
           <FriendEndpointSearchContainer
             className={'friend-location'}
             locationType={`Friend`} />
-          <PlacesSearch
-            submitPlacesSearch={ ()=>{}} />
-          <MapContainer />
+          <PlacesSearchContainer />
           {/* <PlacesSearch
-                submitPlacesSearch={ ()=>{}} /> */}
+            submitPlacesSearch={ ()=>{}} /> */}
+          <MapContainer />
         </main>
       </div>
     );

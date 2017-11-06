@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import PlacesSearch from '../PlacesSearch/PlacesSearch';
 import { PropTypes } from 'prop-types';
-import { apiKey } from '../../utilities/apiKey';
+// import { apiKey } from '../../utilities/apiKey';
 import MyMapComponent from '../MyGoogleMap/MyGoogleMap';
 
 export default class MainMap extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentWillReceiveProps(nextProps) {
     if ( nextProps.displayYourMap && nextProps.displayFriendMap &&
@@ -39,22 +39,23 @@ export default class MainMap extends Component {
     // }
   }
 
-  renderMap() {
-    if (this.props.displayMainMap) {
-      return (
-        <iframe
-          width="800"
-          height="600"
-          frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=
-          ${this.props.mainGPSLocation.lat}, ${this.props.mainGPSLocation.lng}&zoom=18`}
-          title={`CenterLocationMap`}>
-        </iframe>
-      );
-    } else {
-      return;
-    }
-  }
+  // renderMap() {
+  //   if (this.props.displayMainMap) {
+  //     return (
+  //       <iframe
+  //         width="800"
+  //         height="600"
+  //         frameBorder="0" style={{border: 0}}
+  //         src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=
+  //         ${this.props.mainGPSLocation.lat},
+  //         ${this.props.mainGPSLocation.lng}&zoom=18`}
+  //         title={`CenterLocationMap`}>
+  //       </iframe>
+  //     );
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   render() {
     return (

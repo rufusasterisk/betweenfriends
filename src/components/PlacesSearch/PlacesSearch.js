@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import locationCleaner from '../../utilities/locationCleaner';
+import PropTypes from 'prop-types';
+// import locationCleaner from '../../utilities/locationCleaner';
 
 export default class PlacesSearch extends Component {
   constructor(props) {
@@ -23,10 +24,9 @@ export default class PlacesSearch extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    this.props.submitPlacesSearch({
-
-    });
-    console.log(locationCleaner(this.state.searchField));
+    console.log(`handling click`);
+    this.props.submitPlacesSearch(this.state.searchField,
+      this.props.mainGPSLocation, this.props.vincentyDistance/2);
   }
 
   handleRadio(event) {
@@ -41,15 +41,16 @@ export default class PlacesSearch extends Component {
       <article
         className='places-search'>
         <form>
-          <h2 className='places-header'>What's<span> Between Friends?</span></h2>
+          <h2 className='places-header'>What&apos;s
+            <span> Between Friends?</span></h2>
           <input
             onChange={this.handleChange}
-            onClick={this.props.submitPlacesSearch}
+            // onClick={this.props.submitPlacesSearch}
             value={this.state.searchField} />
           <button
             onClick={this.handleClick}
             value={'Search!'}>Search!</button>
-          <div className={'radio-container'}>
+          {/* <div className={'radio-container'}>
             <h5>Extra Radius</h5>
             <label>
               <input
@@ -82,10 +83,16 @@ export default class PlacesSearch extends Component {
                 onChange={this.handleRadio}
                 type='radio'
                 value='1' /> 1 mi
-            </label>    
-          </div>
+            </label>
+          </div> */}
         </form>
       </article>
     );
   }
 }
+
+PlacesSearch.propTypes = {
+  submitPlacesSearch: PropTypes.func,
+  mainGPSLocation: PropTypes.object,
+  vincentyDistance: PropTypes.number
+};

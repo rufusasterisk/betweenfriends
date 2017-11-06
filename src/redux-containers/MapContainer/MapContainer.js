@@ -4,7 +4,6 @@ import {
   displayMap,
   getVincentyDistance,
   computeMainMap } from '../../actions/EndpointSearchActions';
-
 import MainMap from '../../components/MainMap/MainMap';
 
 const mapStatetoProps = store => ({
