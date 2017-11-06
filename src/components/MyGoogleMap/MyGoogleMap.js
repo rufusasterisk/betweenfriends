@@ -29,9 +29,18 @@ const MyMapComponent = compose(
     center={props.center}
     ref={(map) => {
       // console.log(map);
-      if (map) {
-        console.log(map.getBounds());
-      }
+      // console.log(props.mapBounds.sw.lat);
+      // console.log(new window.google.maps.LatLng(props.mapBounds.sw.lat,
+      //   props.mapBounds.sw.lng));
+      // console.log(new window.google.maps.LatLngBounds(
+      //   new window.google.maps.LatLng(props.mapBounds.sw.lat,
+      //     props.mapBounds.sw.lng),
+      //   new window.google.maps.LatLng(props.mapBounds.ne.lat,
+      //     props.mapBounds.ne.lng)
+      // ));
+      // if (map) {
+      //   console.log(map.getBounds());
+      // }
       if (props.isMarkerShown && map) {
         const variance = props.vincentyDistance/2000000;
         // console.log(variance);

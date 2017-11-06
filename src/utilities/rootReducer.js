@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { placesArray } from '../reducers/PlacesSearchReducers';
 import {
   yourTextLocation,
   yourGPSLocation,
@@ -17,7 +18,7 @@ import {
 
 
 const rootReducer = combineReducers(
-  {
+  { placesArray,
     yourTextLocation,
     yourGPSLocation,
     loadingYourMap,

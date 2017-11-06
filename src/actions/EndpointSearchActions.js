@@ -43,11 +43,9 @@ export const getVincentyDistanceSync = (location1GPS, location2GPS) => {
 };
 
 export const getVincentyDistance = (location1GPS, location2GPS) => dispatch => {
-  console.log('running Vincenty');
   vincenty.distVincenty(location1GPS.lat, location1GPS.lng,
     location2GPS.lat, location2GPS.lng, function (distance) {
       dispatch(setDistance(distance));
-      // dispatch(computeMapBounds(location1GPS, location2GPS, distance));
     });
 };
 
@@ -58,12 +56,6 @@ export const findMidpoint = (location1GPS, location2GPS) => ({
 
 export const computeMainMap = (location1GPS, location2GPS) => dispatch => {
   const mainMapCenterGPS = findMidpoint(location1GPS, location2GPS);
-  // {
-  //   lat: (location1GPS.lat +
-  //     location2GPS.lat)/2,
-  //   lng: (location1GPS.lng +
-  //     location2GPS.lng)/2
-  // };
   dispatch(setGPSLocation(mainMapCenterGPS, 'main'));
   const distance = getVincentyDistanceSync(location1GPS, location2GPS);
   dispatch(setDistance(distance));
