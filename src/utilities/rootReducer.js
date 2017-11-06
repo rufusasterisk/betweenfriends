@@ -12,7 +12,8 @@ import {
   loadFriendMapFailure,
   mainGPSLocation,
   displayMainMap,
-  vincentyDistance } from '../reducers/EndpointSearchReducers';
+  vincentyDistance,
+  mapBounds } from '../reducers/EndpointSearchReducers';
 
 
 const rootReducer = combineReducers(
@@ -29,7 +30,8 @@ const rootReducer = combineReducers(
     loadFriendMapFailure,
     mainGPSLocation,
     displayMainMap,
-    vincentyDistance
+    vincentyDistance,
+    mapBounds
   }
 );
 

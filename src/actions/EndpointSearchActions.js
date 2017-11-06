@@ -72,23 +72,23 @@ export const computeMainMap = (location1GPS, location2GPS) => dispatch => {
 };
 
 export const computeMapBounds = (mainMapCenterGPS, distance) => {
-  const nwRaw = vincenty.destVincenty(
+  const neRaw = vincenty.destVincenty(
     mainMapCenterGPS.lat,
     mainMapCenterGPS.lng,
     45, distance/Math.sqrt(2));
-  const seRaw = vincenty.destVincenty(
+  const swRaw = vincenty.destVincenty(
     mainMapCenterGPS.lat,
     mainMapCenterGPS.lng,
     225, distance/Math.sqrt(2));
 
   return (
     {
-      nw: {
-        lat: nwRaw.lat,
-        lng: nwRaw.lon },
-      se: {
-        lat: seRaw.lat,
-        lng: seRaw.lon
+      ne: {
+        lat: neRaw.lat,
+        lng: neRaw.lon },
+      sw: {
+        lat: swRaw.lat,
+        lng: swRaw.lon
       }
     });
 };

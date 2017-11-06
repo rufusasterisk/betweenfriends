@@ -23,15 +23,17 @@ export default class MainMap extends Component {
 
   updateStatus(nextProps) {
     // if (this.props.displayYourMap && this.props.displayFriendMap) {
-    const mainMapGPSObject = {
-      lat: (nextProps.yourGPSLocation.lat +
-        nextProps.friendGPSLocation.lat)/2,
-      lng: (nextProps.yourGPSLocation.lng +
-        nextProps.friendGPSLocation.lng)/2
-    };
-    this.props.setMainMapGPS(mainMapGPSObject);
-    this.props.getVincentyDistance(
-      nextProps.yourGPSLocation,
+    // const mainMapGPSObject = {
+    //   lat: (nextProps.yourGPSLocation.lat +
+    //     nextProps.friendGPSLocation.lat)/2,
+    //   lng: (nextProps.yourGPSLocation.lng +
+    //     nextProps.friendGPSLocation.lng)/2
+    // };
+    // this.props.setMainMapGPS(mainMapGPSObject);
+    // this.props.getVincentyDistance(
+    //   nextProps.yourGPSLocation,
+    //   nextProps.friendGPSLocation);
+    this.props.computeMainMap(nextProps.yourGPSLocation,
       nextProps.friendGPSLocation);
     this.props.displayMap(true);
     // }
@@ -59,13 +61,14 @@ export default class MainMap extends Component {
       <section className='main-map'>
         {/* {this.renderMap()} */}
         <MyMapComponent
-          isMarkerShown
+          isMarkerShown={this.props.displayMainMap}
           center={this.props.center}
           vincentyDistance={this.props.vincentyDistance}
           yourGPSLocation={this.props.yourGPSLocation}
           displayYourMap={this.props.displayYourMap}
           friendGPSLocation={this.props.friendGPSLocation}
-          displayFriendMap={this.props.displayFriendMap}/>
+          displayFriendMap={this.props.displayFriendMap}
+          mapBounds={this.props.mapBounds}/>
       </section>
     );
   }
@@ -82,5 +85,7 @@ MainMap.propTypes = {
   displayMap: PropTypes.func,
   center: PropTypes.object,
   getVincentyDistance: PropTypes.func,
-  vincentyDistance: PropTypes.number
+  vincentyDistance: PropTypes.number,
+  computeMainMap: PropTypes.func,
+  mapBounds: PropTypes.object
 };
