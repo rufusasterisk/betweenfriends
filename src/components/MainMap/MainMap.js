@@ -47,7 +47,8 @@ export default class MainMap extends Component {
           height="600"
           frameBorder="0" style={{border: 0}}
           src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=
-          ${this.props.mainGPSLocation.lat}, ${this.props.mainGPSLocation.lng}&zoom=18`}
+          ${this.props.mainGPSLocation.lat},
+          ${this.props.mainGPSLocation.lng}&zoom=18`}
           title={`CenterLocationMap`}>
         </iframe>
       );

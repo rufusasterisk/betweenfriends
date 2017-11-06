@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import locationCleaner from '../../utilities/locationCleaner';
 
 export default class PlacesSearch extends Component {
@@ -41,7 +42,8 @@ export default class PlacesSearch extends Component {
       <article
         className='places-search'>
         <form>
-          <h2 className='places-header'>What's<span> Between Friends?</span></h2>
+          <h2 className='places-header'>What&apos;s
+            <span> Between Friends?</span></h2>
           <input
             onChange={this.handleChange}
             onClick={this.props.submitPlacesSearch}
@@ -49,7 +51,7 @@ export default class PlacesSearch extends Component {
           <button
             onClick={this.handleClick}
             value={'Search!'}>Search!</button>
-          <div className={'radio-container'}>
+          {/* <div className={'radio-container'}>
             <h5>Extra Radius</h5>
             <label>
               <input
@@ -82,10 +84,14 @@ export default class PlacesSearch extends Component {
                 onChange={this.handleRadio}
                 type='radio'
                 value='1' /> 1 mi
-            </label>    
-          </div>
+            </label>
+          </div> */}
         </form>
       </article>
     );
   }
 }
+
+PlacesSearch.propTypes = {
+  submitPlacesSearch: PropTypes.func
+};

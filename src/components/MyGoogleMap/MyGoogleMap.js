@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, Circle} from 'react-google-maps';
+import { withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+  Circle } from 'react-google-maps';
 import { compose, withProps } from 'recompose';
 import { apiKey } from '../../utilities/apiKey';
 
@@ -24,10 +28,13 @@ const MyMapComponent = compose(
     defaultCenter={{ lat: 39.7392358, lng: -104.990251 }}
     center={props.center}
     ref={(map) => {
-      console.log(map);
+      // console.log(map);
+      if (map) {
+        console.log(map.getBounds());
+      }
       if (props.isMarkerShown && map) {
         const variance = props.vincentyDistance/2000000;
-        console.log(variance);
+        // console.log(variance);
         const mapBoundsLiteral = {
           east: props.mapBounds.ne.lng - variance,
           north: props.mapBounds.ne.lat - variance,
@@ -35,8 +42,8 @@ const MyMapComponent = compose(
           west: props.mapBounds.sw.lng + variance
         };
         map.fitBounds(mapBoundsLiteral);
-        console.log(mapBoundsLiteral);
-        console.log(map.getBounds());
+        // console.log(mapBoundsLiteral);
+        // console.log(map.getBounds());
       // console.log(props.mapBounds);q
       }
 
