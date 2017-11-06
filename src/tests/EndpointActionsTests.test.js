@@ -73,11 +73,11 @@ describe('computeMapBounds', () => {
   it(`receives a center GPS object and distance in meters then
      returns a bounds object with the NW and SE corners as GPS objects`, () => {
       const expectation = {
-        nw: {
+        ne: {
           lat: 39.76479074438441,
           lng: -104.97658628951173
         },
-        se: {
+        sw: {
           lat: 39.747498761668744,
           lng: -104.9989900092971
         }
@@ -92,11 +92,11 @@ describe('setBounds', () => {
   it(`receives a bounds GPS object then
     return an action with a bounds key`, () => {
       const bounds = {
-        nw: {
+        ne: {
           lat: 39.76479074438441,
           lng: -104.97658628951173
         },
-        se: {
+        sw: {
           lat: 39.747498761668744,
           lng: -104.9989900092971
         }

@@ -8,11 +8,19 @@ import { withScriptjs,
 import { compose, withProps } from 'recompose';
 import { apiKey } from '../../utilities/apiKey';
 
+const buildMarkers = (placesArray) => {
+  return placesArray.map( (place) => {
+    return (<Marker
+      key={place.id}
+      position={place.geometry.location}
+      label={place.name} />);
+  });
+};
 
 const MyMapComponent = compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?
-      key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
+    // eslint-disable-next-line max-len
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div />,
     mapElement: <div
@@ -28,19 +36,6 @@ const MyMapComponent = compose(
     defaultCenter={{ lat: 39.7392358, lng: -104.990251 }}
     center={props.center}
     ref={(map) => {
-      // console.log(map);
-      // console.log(props.mapBounds.sw.lat);
-      // console.log(new window.google.maps.LatLng(props.mapBounds.sw.lat,
-      //   props.mapBounds.sw.lng));
-      // console.log(new window.google.maps.LatLngBounds(
-      //   new window.google.maps.LatLng(props.mapBounds.sw.lat,
-      //     props.mapBounds.sw.lng),
-      //   new window.google.maps.LatLng(props.mapBounds.ne.lat,
-      //     props.mapBounds.ne.lng)
-      // ));
-      // if (map) {
-      //   console.log(map.getBounds());
-      // }
       if (props.isMarkerShown && map) {
         const variance = props.vincentyDistance/2000000;
         // console.log(variance);
@@ -53,11 +48,9 @@ const MyMapComponent = compose(
         map.fitBounds(mapBoundsLiteral);
         // console.log(mapBoundsLiteral);
         // console.log(map.getBounds());
-      // console.log(props.mapBounds);q
+      // console.log(props.mapBounds);
       }
-
-    }}
-  >
+    }}>
     {props.isMarkerShown &&
       <Circle
         center={props.center}
@@ -66,11 +59,15 @@ const MyMapComponent = compose(
     {props.displayYourMap &&
       <Marker
         position={props.yourGPSLocation}
-        label="Your Location"/> }
+        label="Your Location"
+        defaultOptions={{color: 'green'}}/> }
     {props.displayFriendMap &&
       <Marker
         position={props.friendGPSLocation}
-        label="Friend Location" /> }
+        label="Friend Location"
+        defaultOptions={{color: 'orange'}}/> }
+    {props.placesArray.length > 0 &&
+      buildMarkers(props.placesArray)}
     {/* {props.isMarkerShown &&
       <Marker
         position={props.center}

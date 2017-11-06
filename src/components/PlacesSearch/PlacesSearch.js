@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import locationCleaner from '../../utilities/locationCleaner';
 
 export default class PlacesSearch extends Component {
   constructor(props) {
@@ -12,7 +11,6 @@ export default class PlacesSearch extends Component {
     this.handleRadio = this.handleRadio.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
   }
 
   handleChange(event) {
@@ -24,7 +22,6 @@ export default class PlacesSearch extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    console.log(`handling click`);
     this.props.submitPlacesSearch(this.state.searchField,
       this.props.mainGPSLocation, this.props.vincentyDistance/2);
   }
@@ -35,7 +32,6 @@ export default class PlacesSearch extends Component {
     });
   }
 
-
   render() {
     return (
       <article
@@ -45,7 +41,6 @@ export default class PlacesSearch extends Component {
             <span> Between Friends?</span></h2>
           <input
             onChange={this.handleChange}
-            // onClick={this.props.submitPlacesSearch}
             value={this.state.searchField} />
           <button
             onClick={this.handleClick}
