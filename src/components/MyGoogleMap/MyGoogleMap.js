@@ -45,15 +45,8 @@ const MyMapComponent = compose(
     {props.isMarkerShown &&
       <Circle
         center={props.center}
-        radius={props.vincentyDistance/2} /> }
-    {props.isMarkerShown &&
-      <Marker
-        position={{lat: props.mapBounds.ne.lat, lng: props.mapBounds.ne.lng}}
-        label={'NorthEast bound'} /> }
-    {props.isMarkerShown &&
-      <Marker
-        position={{lat: props.mapBounds.sw.lat, lng: props.mapBounds.sw.lng}}
-        label={'SouthWest bound'} /> }
+        radius={props.vincentyDistance/2}
+        defaultOptions={{fillColor: 'transparent'}}/> }
     {props.displayYourMap &&
       <Marker
         position={props.yourGPSLocation}
@@ -62,10 +55,18 @@ const MyMapComponent = compose(
       <Marker
         position={props.friendGPSLocation}
         label="Friend Location" /> }
-    {props.isMarkerShown &&
+    {/* {props.isMarkerShown &&
       <Marker
         position={props.center}
         label="Center" /> }
+    {props.isMarkerShown &&
+      <Marker
+        position={{lat: props.mapBounds.ne.lat, lng: props.mapBounds.ne.lng}}
+        label={'NorthEast bound'} /> }
+    {props.isMarkerShown &&
+      <Marker
+        position={{lat: props.mapBounds.sw.lat, lng: props.mapBounds.sw.lng}}
+        label={'SouthWest bound'} /> } */}
   </GoogleMap>
 );
 
