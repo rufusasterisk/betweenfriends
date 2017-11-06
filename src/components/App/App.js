@@ -4,7 +4,6 @@ import YourEndpointSearchContainer from
   '../../redux-containers/EndpointContainer/YourEndpointSearchContainer';
 import FriendEndpointSearchContainer from
   '../../redux-containers/EndpointContainer/FriendEndpointSearchContainer';
-// import PlacesSearch from '../PlacesSearch/PlacesSearch';
 import PlacesSearchContainer from
   '../../redux-containers/PlacesSearchContainer/PlacesSearchContainer';
 import Header from '../Header/Header';
@@ -23,8 +22,6 @@ class App extends Component {
             className={'friend-location'}
             locationType={`Friend`} />
           <PlacesSearchContainer />
-          {/* <PlacesSearch
-            submitPlacesSearch={ ()=>{}} /> */}
           <MapContainer />
         </main>
       </div>

@@ -15,7 +15,8 @@ const mapStatetoProps = store => ({
   displayMainMap: store.displayMainMap,
   center: store.mainGPSLocation,
   vincentyDistance: store.vincentyDistance,
-  mapBounds: store.mapBounds
+  mapBounds: store.mapBounds,
+  placesArray: store.placesArray
 });
 
 const mapDispatchtoProps = dispatch => ({

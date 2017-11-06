@@ -1,21 +1,21 @@
 import { apiKey } from '../utilities/apiKey';
+import locationCleaner from '../utilities/locationCleaner';
+
 
 export const submitPlacesSearch = (searchString, center, radius) =>
   dispatch => {
-    fetch(`http://maps.googleapis.com/maps/api/place/nearbysearch/json?&key=${
+    const cleanedSearchString = locationCleaner(searchString);
+    // eslint-disable-next-line max-len
+    fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?&key=${
       apiKey}&location=${center.lat},${center.lng}&radius=${
-      radius}&keyword=${searchString}`,
-    { credentials: 'omit',
-      headers: {
-        'Access-Control-Request-Headers': true
-      }}
+      radius}&keyword=${cleanedSearchString}`
     )
-      .then(response => {
-        console.log(response);
-        return response.json()
-      })
+      .then(response => response.json())
       .then(responseData => {
         dispatch(setPlaces(responseData.results));
+      })
+      .catch(error => {
+        alert('there was a problem with your request', error);
       });
   };
 
