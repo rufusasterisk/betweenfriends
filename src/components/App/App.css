@@ -53,10 +53,13 @@ form {
 
 form input {
   font-size: 20px;
+  font-family: BioRhyme;
+
 }
 
 form button {
-
+  font-size: 20px;
+  font-family: BioRhyme;
 }
 
 form h2 {
@@ -78,7 +81,8 @@ h5 {
   transition: height 0.5s, transform 1s;
 }
 
-.main-map iframe {
+.main-map iframe,
+.my-google-map {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,6 +111,7 @@ h5 {
   width: 60%;
   position: relative;
   z-index: -1;
+
 }
 
 h2 span {

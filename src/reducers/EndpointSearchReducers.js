@@ -130,7 +130,7 @@ export const loadFriendMapFailure = (state = false, action) => {
   }
 };
 
-export const mainGPSLocation = (state = {lat: 0, lng: 0}, action) => {
+export const mainGPSLocation = (state = {lat: 39.7508006, lng: -104.9965947}, action) => {
   switch (action.type) {
   case 'SET_GPS_LOCATION':
     return action.locationType === 'main' ? action.GPS : state;
@@ -143,6 +143,26 @@ export const displayMainMap = (state = false, action) => {
   switch (action.type) {
   case 'DISPLAY_INDIVIDUAL_MAP':
     return action.locationType === 'main' ? action.option : state;
+  default:
+    return state;
+  }
+};
+
+export const vincentyDistance = (state = 0, action) => {
+  switch (action.type) {
+  case 'SET_DISTANCE':
+    return action.distance;
+  default:
+    return state;
+  }
+};
+
+export const mapBounds = (state = {
+  sw: {lat: 0, lng: 0},
+  ne: {lat: 0, lng: 0}}, action) => {
+  switch (action.type) {
+  case 'SET_MAP_BOUNDS':
+    return action.bounds;
   default:
     return state;
   }

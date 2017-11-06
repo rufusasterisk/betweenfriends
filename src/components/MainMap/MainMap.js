@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import PlacesSearch from '../PlacesSearch/PlacesSearch';
+// import PlacesSearch from '../PlacesSearch/PlacesSearch';
 import { PropTypes } from 'prop-types';
 import { apiKey } from '../../utilities/apiKey';
+import MyMapComponent from '../MyGoogleMap/MyGoogleMap';
 
 export default class MainMap extends Component {
   constructor(props) {
@@ -9,22 +10,31 @@ export default class MainMap extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ( (nextProps.displayYourMap && nextProps.displayFriendMap) &&
-    (nextProps.displayYourMap !== this.props.displayYourMap ||
-       nextProps.displayFriendMap !== this.props.displayFriendMap) ){
-      this.updateStatus();
+    if ( nextProps.displayYourMap && nextProps.displayFriendMap &&
+    (nextProps.yourGPSLocation !== this.props.yourGPSLocation ||
+       nextProps.friendGPSLocation !== this.props.friendGPSLocation) ){
+      this.updateStatus(nextProps);
     }
   }
 
-  updateStatus() {
+  shouldComponentUpdate(nextProps) {
+    return this.props !== nextProps;
+  }
+
+  updateStatus(nextProps) {
     // if (this.props.displayYourMap && this.props.displayFriendMap) {
-    const mainMapGPSObject = {
-      lat: (this.props.yourGPSLocation.lat +
-        this.props.friendGPSLocation.lat)/2,
-      lng: (this.props.yourGPSLocation.lng +
-        this.props.friendGPSLocation.lng)/2
-    };
-    this.props.setMainMapGPS(mainMapGPSObject);
+    // const mainMapGPSObject = {
+    //   lat: (nextProps.yourGPSLocation.lat +
+    //     nextProps.friendGPSLocation.lat)/2,
+    //   lng: (nextProps.yourGPSLocation.lng +
+    //     nextProps.friendGPSLocation.lng)/2
+    // };
+    // this.props.setMainMapGPS(mainMapGPSObject);
+    // this.props.getVincentyDistance(
+    //   nextProps.yourGPSLocation,
+    //   nextProps.friendGPSLocation);
+    this.props.computeMainMap(nextProps.yourGPSLocation,
+      nextProps.friendGPSLocation);
     this.props.displayMap(true);
     // }
   }
@@ -46,13 +56,19 @@ export default class MainMap extends Component {
     }
   }
 
-  // <div>pp</div>
-
   render() {
     return (
       <section className='main-map'>
-        {/* MAIN MAP COMPONENT */}
-        {this.renderMap()}
+        {/* {this.renderMap()} */}
+        <MyMapComponent
+          isMarkerShown={this.props.displayMainMap}
+          center={this.props.center}
+          vincentyDistance={this.props.vincentyDistance}
+          yourGPSLocation={this.props.yourGPSLocation}
+          displayYourMap={this.props.displayYourMap}
+          friendGPSLocation={this.props.friendGPSLocation}
+          displayFriendMap={this.props.displayFriendMap}
+          mapBounds={this.props.mapBounds}/>
       </section>
     );
   }
@@ -66,5 +82,10 @@ MainMap.propTypes = {
   displayFriendMap: PropTypes.bool,
   displayMainMap: PropTypes.bool,
   setMainMapGPS: PropTypes.func,
-  displayMap: PropTypes.func
+  displayMap: PropTypes.func,
+  center: PropTypes.object,
+  getVincentyDistance: PropTypes.func,
+  vincentyDistance: PropTypes.number,
+  computeMainMap: PropTypes.func,
+  mapBounds: PropTypes.object
 };
