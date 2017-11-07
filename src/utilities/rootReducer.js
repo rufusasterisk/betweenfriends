@@ -14,7 +14,8 @@ import {
   mainGPSLocation,
   displayMainMap,
   vincentyDistance,
-  mapBounds } from '../reducers/EndpointSearchReducers';
+  mapBounds,
+  gpsLocations } from '../reducers/EndpointSearchReducers';
 
 
 const rootReducer = combineReducers(
@@ -32,7 +33,8 @@ const rootReducer = combineReducers(
     mainGPSLocation,
     displayMainMap,
     vincentyDistance,
-    mapBounds
+    mapBounds,
+    gpsLocations
   }
 );
 
