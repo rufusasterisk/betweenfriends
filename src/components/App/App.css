@@ -92,7 +92,8 @@ h5 {
 
 .places-search {
   position: absolute;
-  background-color: #BADA55;
+  /*background-color: #BADA55;*/
+  background: lightblue;
   z-index: 5;
   width: 20%;
   height: 20%;
