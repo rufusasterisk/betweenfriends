@@ -171,13 +171,13 @@ export const mapBounds = (state = {
 };
 
 export const gpsLocations = (state = {
-  Your: {lat: 0, lng: 0},
-  Friend: {lat: 0, lng: 0},
+  your: {lat: 0, lng: 0},
+  friend: {lat: 0, lng: 0},
   main: {lat: 39.7508006, lng: -104.9965947}
 }, action) => {
   switch (action.type) {
   case 'SET_GPS_LOCATION':
-    return Object.assign({}, state, { [action.locationType]: action.GPS } );
+    return Object.assign({}, state, { [(action.locationType).toLowerCase()]: action.GPS } );
   default:
     return state;
   }
