@@ -3,8 +3,9 @@ import { submitPlacesSearch } from '../../actions/PlacesSearchActions';
 import PlacesSearch from '../../components/PlacesSearch/PlacesSearch';
 
 const mapStatetoProps = store => ({
-  mainGPSLocation: store.gpsLocations.main,
-  vincentyDistance: store.vincentyDistance
+  mainGPSLocation: store.mainGPSLocation,
+  vincentyDistance: store.vincentyDistance,
+  searched: store.placesArray.length > 0
 
 });
 const mapDispatchtoProps = dispatch => ({
