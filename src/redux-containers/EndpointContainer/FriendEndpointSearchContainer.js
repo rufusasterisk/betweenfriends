@@ -7,7 +7,7 @@ import {
 
 const mapStatetoProps = store => ({
   textLocation: store.friendTextLocation,
-  gpsLocation: store.friendGPSLocation,
+  gpsLocation: store.gpsLocations.friend,
   loadingMap: store.loadingFriendMap,
   displayMap: store.displayFriendMap,
   loadFailure: store.loadFriendMapFailure
@@ -21,7 +21,7 @@ const mapDispatchtoProps = dispatch => ({
   //   dispatch(shouldLoadMap(option, locationType));
   // }
   getMap: (locationString) => {
-    dispatch(getMap(locationString, 'Friend'));
+    dispatch(getMap(locationString, 'friend'));
   }
 });
 
