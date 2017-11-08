@@ -124,8 +124,8 @@ h5 {
   width: 20%;
   height: 20%;
   bottom: 0;
-  right: 10%;
-  transform: translate(-150%, -115%);
+  left: 5%;
+  transform: translate(175%, -115%);
   border-radius: 0 0 30px 30px;
   display: flex;
   flex-direction: column;

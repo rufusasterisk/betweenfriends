@@ -4,31 +4,58 @@ import './PlacesDisplay.css';
 
 export const PlacesDisplay = (props) => {
 
-  const generateCards = () => {
-    const status = dummyData.opening_hours.open_now ?
+  const renderOpen = (place) => {
+    if (place.opening_hours === undefined) {
+      return (<h5></h5>);
+    }
+    const status = place.opening_hours.open_now ?
       'open' : 'closed';
     return (
-      <article
-        className='places-card'>
-        <h3>{dummyData.name}</h3>
-        <div
-          className={`rating ${dummyData.rating}`}>
-          Rating: {dummyData.rating}</div>
-        <h5>Currently: <span
-          className={status}>{status.toUpperCase()}</span></h5>
-        <p>{dummyData.vicinity}</p>
-      </article>
+      <h5>Currently: <span
+        className={status}>{status.toUpperCase()}</span></h5>
     );
   };
 
-  return (
-    <section
-      className={`places-display${props.placesArray.length > 0 ?
-        ' show-cards' : ''}`}>
-      <h2>Places</h2>
-      {generateCards()}
-    </section>
-  );
+  // <h5>Currently: <span
+  //   className={status}>{status.toUpperCase()}</span></h5>
+
+  const generateCards = () => {
+    return props.placesArray.map( (place) => {
+
+      return (
+        <article
+          className='places-card'
+          key={place.id}>
+          <h3>{place.name}</h3>
+          <div
+            className={`rating ${place.rating}`}>
+            Rating: {place.rating || 'N/A'}</div>
+          <p>{place.vicinity}</p>
+          {renderOpen(place)}
+        </article>
+      );
+    });
+  };
+
+  const conditionalRender = () => {
+    if (props.placesArray.length > 0) {
+      return (
+        <section
+          className={`places-display show-cards`}>
+          <h2>Places</h2>
+          {generateCards()}
+        </section>
+      );
+    } else {
+      return (
+        <section
+          className={`places-display`}>
+        </section>
+      );
+    }
+  };
+
+  return conditionalRender();
 };
 
 PlacesDisplay.propTypes = {
