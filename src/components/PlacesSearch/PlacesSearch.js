@@ -15,7 +15,6 @@ export default class PlacesSearch extends Component {
 
   handleChange(event) {
     event.preventDefault();
-    console.log(this.props);
     this.setState({
       searchField: event.target.value
     });

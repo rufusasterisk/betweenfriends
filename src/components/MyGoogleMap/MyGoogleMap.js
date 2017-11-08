@@ -59,12 +59,14 @@ const MyMapComponent = compose(
       <Marker
         position={props.gpsLocations.your}
         label="Your Location"
-        defaultOptions={{color: 'green'}}/> }
+        defaultOptions={
+          {icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}}/> }
     {props.displayFriendMap &&
       <Marker
         position={props.gpsLocations.friend}
         label="Friend Location"
-        defaultOptions={{color: 'orange'}}/> }
+        defaultOptions={
+          {icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png'}}/> }
     {props.placesArray.length > 0 &&
       buildMarkers(props.placesArray)}
     {/* {props.isMarkerShown &&

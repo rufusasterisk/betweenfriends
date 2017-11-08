@@ -49,16 +49,19 @@ form {
  padding: 5px;
  display: flex;
  flex-direction: column;
+ align-items: center;
+ min-width: 90%;
 }
 
 form input {
-  font-size: 20px;
+  font-size: 24px;
   font-family: BioRhyme;
 }
 
 form button {
   font-size: 20px;
   font-family: BioRhyme;
+  max-width: 60%;
 }
 
 form h2 {
@@ -66,7 +69,10 @@ form h2 {
   margin: 0;
   line-height: 1em;
   text-align: left;
-  padding-bottom: 10px;
+  padding: 0 0 10px 30px;
+  min-width: 100%;
+  font-size: 32px;
+  /*padding-bottom: 10px;*/
 }
 
 h5 {
