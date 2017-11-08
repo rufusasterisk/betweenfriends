@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './PlacesDisplay.css';
 
 export const PlacesDisplay = (props) => {
 
@@ -7,21 +8,24 @@ export const PlacesDisplay = (props) => {
     const status = dummyData.opening_hours.open_now ?
       'open' : 'closed';
     return (
-      <article>
+      <article
+        className='places-card'>
         <h3>{dummyData.name}</h3>
-        <p>{dummyData.vicinity}</p>
         <div
           className={`rating ${dummyData.rating}`}>
           Rating: {dummyData.rating}</div>
         <h5>Currently: <span
           className={status}>{status.toUpperCase()}</span></h5>
+        <p>{dummyData.vicinity}</p>
       </article>
     );
   };
 
   return (
     <section
-      className={'places-display'}>
+      className={`places-display${props.placesArray.length > 0 ?
+        ' show-cards' : ''}`}>
+      <h2>Places</h2>
       {generateCards()}
     </section>
   );
