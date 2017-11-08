@@ -7,12 +7,31 @@ import FriendEndpointSearchContainer from
 import PlacesSearchContainer from
   '../../redux-containers/PlacesSearchContainer/PlacesSearchContainer';
 import Header from '../Header/Header';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import MapContainer from '../../redux-containers/MapContainer/MapContainer';
 
 class App extends Component {
+  buildClassList() {
+    let classString = "App";
+    if (this.props.displayYourMap) {
+      classString += ' your-entered';
+    }
+    if (this.props.displayFriendMap) {
+      classString += ' friend-entered';
+    }
+    if (this.props.displayMainMap) {
+      classString += ' main-entered';
+    }
+    if (this.props.displayPlaces) {
+      classString += ' places-entered';
+    }
+    return classString;
+  }
+
   render() {
     return (
-      <div className="App">
+      <div className={this.buildClassList()}>
         <Header />
         <main>
           <YourEndpointSearchContainer
@@ -29,4 +48,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStatetoProps = store => ({
+  displayYourMap: store.displayYourMap,
+  displayFriendMap: store.displayFriendMap,
+  displayMainMap: store.displayMainMap,
+  displayPlaces: (store.placesArray).length > 0
+});
+
+export default connect(mapStatetoProps, undefined)(App);
+
+App.propTypes = {
+  displayYourMap: PropTypes.bool,
+  displayFriendMap: PropTypes.bool,
+  displayMainMap: PropTypes.bool,
+  displayPlaces: PropTypes.bool
+};
