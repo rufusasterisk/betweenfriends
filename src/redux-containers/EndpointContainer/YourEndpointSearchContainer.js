@@ -7,7 +7,7 @@ import {
 
 const mapStatetoProps = store => ({
   textLocation: store.yourTextLocation,
-  gpsLocation: store.yourGPSLocation,
+  gpsLocation: store.gpsLocations.your,
   loadingMap: store.loadingYourMap,
   displayMap: store.displayYourMap,
   loadFailure: store.loadYourMapFailure
@@ -18,7 +18,7 @@ const mapDispatchtoProps = dispatch => ({
   //   dispatch(updateIndividualLocation(locationString, 'Your'));
   // },
   getMap: (locationString) => {
-    dispatch(getMap(locationString, 'Your'));
+    dispatch(getMap(locationString, 'your'));
   }
 });
 

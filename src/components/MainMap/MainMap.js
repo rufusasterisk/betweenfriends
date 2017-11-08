@@ -6,8 +6,8 @@ export default class MainMap extends Component {
 
   componentWillReceiveProps(nextProps) {
     if ( nextProps.displayYourMap && nextProps.displayFriendMap &&
-    (nextProps.yourGPSLocation !== this.props.yourGPSLocation ||
-       nextProps.friendGPSLocation !== this.props.friendGPSLocation) ){
+    (nextProps.gpsLocations.your !== this.props.gpsLocations.your ||
+       nextProps.gpsLocations.friend !== this.props.gpsLocations.friend) ){
       this.updateStatus(nextProps);
     }
   }
@@ -17,8 +17,8 @@ export default class MainMap extends Component {
   }
 
   updateStatus(nextProps) {
-    this.props.computeMainMap(nextProps.yourGPSLocation,
-      nextProps.friendGPSLocation);
+    this.props.computeMainMap(nextProps.gpsLocations.your,
+      nextProps.gpsLocations.friend);
     this.props.displayMap(true);
   }
 
@@ -27,32 +27,27 @@ export default class MainMap extends Component {
       <section className='main-map'>
         <MyMapComponent
           isMarkerShown={this.props.displayMainMap}
-          center={this.props.center}
           vincentyDistance={this.props.vincentyDistance}
-          yourGPSLocation={this.props.yourGPSLocation}
           displayYourMap={this.props.displayYourMap}
-          friendGPSLocation={this.props.friendGPSLocation}
           displayFriendMap={this.props.displayFriendMap}
           mapBounds={this.props.mapBounds}
-          placesArray={this.props.placesArray}/>
+          placesArray={this.props.placesArray}
+          gpsLocations={this.props.gpsLocations}/>
       </section>
     );
   }
 }
 
 MainMap.propTypes = {
-  yourGPSLocation: PropTypes.object,
-  friendGPSLocation: PropTypes.object,
-  mainGPSLocation: PropTypes.object,
   displayYourMap: PropTypes.bool,
   displayFriendMap: PropTypes.bool,
   displayMainMap: PropTypes.bool,
   setMainMapGPS: PropTypes.func,
   displayMap: PropTypes.func,
-  center: PropTypes.object,
   getVincentyDistance: PropTypes.func,
   vincentyDistance: PropTypes.number,
   computeMainMap: PropTypes.func,
   mapBounds: PropTypes.object,
-  placesArray: PropTypes.array
+  placesArray: PropTypes.array,
+  gpsLocations: PropTypes.object
 };

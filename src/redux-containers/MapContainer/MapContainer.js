@@ -7,16 +7,13 @@ import {
 import MainMap from '../../components/MainMap/MainMap';
 
 const mapStatetoProps = store => ({
-  yourGPSLocation: store.yourGPSLocation,
-  friendGPSLocation: store.friendGPSLocation,
-  mainGPSLocation: store.mainGPSLocation,
   displayYourMap: store.displayYourMap,
   displayFriendMap: store.displayFriendMap,
   displayMainMap: store.displayMainMap,
-  center: store.mainGPSLocation,
   vincentyDistance: store.vincentyDistance,
   mapBounds: store.mapBounds,
-  placesArray: store.placesArray
+  placesArray: store.placesArray,
+  gpsLocations: store.gpsLocations
 });
 
 const mapDispatchtoProps = dispatch => ({

@@ -3,7 +3,7 @@ import { submitPlacesSearch } from '../../actions/PlacesSearchActions';
 import PlacesSearch from '../../components/PlacesSearch/PlacesSearch';
 
 const mapStatetoProps = store => ({
-  mainGPSLocation: store.mainGPSLocation,
+  mainGPSLocation: store.gpsLocations.main,
   vincentyDistance: store.vincentyDistance
 
 });

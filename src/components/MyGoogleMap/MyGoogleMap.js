@@ -34,7 +34,7 @@ const MyMapComponent = compose(
   <GoogleMap
     defaultZoom={11}
     defaultCenter={{ lat: 39.7392358, lng: -104.990251 }}
-    center={props.center}
+    center={props.gpsLocations.main}
     ref={(map) => {
       if (props.isMarkerShown && map) {
         const variance = props.vincentyDistance/2000000;
@@ -53,17 +53,17 @@ const MyMapComponent = compose(
     }}>
     {props.isMarkerShown &&
       <Circle
-        center={props.center}
+        center={props.gpsLocations.main}
         radius={props.vincentyDistance/2}
         defaultOptions={{fillColor: 'transparent'}}/> }
     {props.displayYourMap &&
       <Marker
-        position={props.yourGPSLocation}
+        position={props.gpsLocations.your}
         label="Your Location"
         defaultOptions={{color: 'green'}}/> }
     {props.displayFriendMap &&
       <Marker
-        position={props.friendGPSLocation}
+        position={props.gpsLocations.friend}
         label="Friend Location"
         defaultOptions={{color: 'orange'}}/> }
     {props.placesArray.length > 0 &&
@@ -85,13 +85,11 @@ const MyMapComponent = compose(
 
 MyMapComponent.propTypes = {
   isMarkerShown: PropTypes.bool,
-  yourGPSLocation: PropTypes.object,
-  friendGPSLocation: PropTypes.object,
-  center: PropTypes.object,
   vincentyDistance: PropTypes.number,
   displayYourMap: PropTypes.bool,
   displayFriendMap: PropTypes.bool,
-  mapBounds: PropTypes.object
+  mapBounds: PropTypes.object,
+  gpsLocations: PropTypes.object
 };
 
 export default MyMapComponent;
