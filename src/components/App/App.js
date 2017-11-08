@@ -11,6 +11,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MainMapContainer from
   '../../redux-containers/MainMapContainer/MainMapContainer';
+import PlacesDisplayContainer from
+  '../../redux-containers/PlacesDisplayContainer/PlacesDisplayContainer'
+
 
 class App extends Component {
   buildClassList() {
@@ -42,7 +45,12 @@ class App extends Component {
             className={'friend-location'}
             locationType={`Friend`} />
           <PlacesSearchContainer />
+<<<<<<< HEAD
           <MainMapContainer />
+=======
+          <PlacesDisplayContainer />
+          <MapContainer />
+>>>>>>> Build test card for styling
         </main>
       </div>
     );
