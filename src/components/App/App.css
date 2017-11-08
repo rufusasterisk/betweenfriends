@@ -25,7 +25,11 @@ main {
   align-items: center;
 }
 
-.your-location.entered {
+.friend-entered .your-location {
+  transform: translate(200%, 185%);
+}
+
+.your-entered .your-location {
   height: 100%;
   transform: none;
   transition: height 0.5s, transform 1s;
@@ -43,6 +47,18 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.your-entered .friend-location {
+  border-radius: 30px 30px 0 0;
+}
+
+.friend-entered .friend-location {
+  /*background-color: blue;*/
+  border-radius: 0 0 0 0;
+  height: 100%;
+  transform: none;
+  transition: height 0.5s, transform 1s;
 }
 
 form {
@@ -81,12 +97,6 @@ h5 {
   margin: 0;
 }
 
-.friend-location.entered {
-  /*background-color: blue;*/
-  height: 100%;
-  transform: none;
-  transition: height 0.5s, transform 1s;
-}
 
 .main-map iframe,
 .my-google-map {
@@ -104,7 +114,9 @@ h5 {
   z-index: 5;
   width: 20%;
   height: 20%;
-  transform: translate(200%, 285%);
+  bottom: 0;
+  right: 10%;
+  transform: translate(-150%, -115%);
   border-radius: 0 0 30px 30px;
   display: flex;
   flex-direction: column;
@@ -112,15 +124,36 @@ h5 {
   align-items: center;
 }
 
+.your-entered.friend-entered .places-search {
+  border-radius: 30px;
+}
+
+.places-entered .places-search {
+  transform: none;
+  transition: transform 1s;
+}
+
 .main-map {
   background-color: #eef;
   margin: auto;
   min-height: 100%;
-  width: 60%;
+  /*width: 60%;*/
+  width: 100%;
   position: relative;
   z-index: -1;
-
 }
+
+/*.your-entered .main-map,
+.friend-entered .main-map {
+  margin-left: auto;
+  margin-right: 0;
+  width: 80%;
+}*/
+
+/*.your-entered.friend-entered .main-map {
+  margin: auto;
+  width: 60%;
+}*/
 
 h2 span {
   display: block;
