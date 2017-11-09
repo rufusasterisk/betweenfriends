@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import MainMapContainer from
   '../../redux-containers/MainMapContainer/MainMapContainer';
 import PlacesDisplayContainer from
-  '../../redux-containers/PlacesDisplayContainer/PlacesDisplayContainer'
+  '../../redux-containers/PlacesDisplayContainer/PlacesDisplayContainer';
 
 
 class App extends Component {

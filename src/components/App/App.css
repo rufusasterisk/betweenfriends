@@ -87,6 +87,7 @@ form {
 form input {
   font-size: 24px;
   font-family: BioRhyme;
+  margin: 2px 0 5px 0;
 }
 
 form button {
@@ -138,7 +139,7 @@ h5 {
   background-color: #73D2DE;
   /*z-index: 5;*/
   width: 20%;
-  height: 20%;
+  height: 19%;
   top: 0;
   right: 0;
   transform: translate(-200%, 285%);
@@ -157,7 +158,8 @@ h5 {
   transform: none;
   transition: transform 1s;
   border-radius: 0px;
-  padding-right: 6px;
+  padding-right: 5px;
+  border-bottom: 4px solid black;
 }
 
 .main-map {
@@ -195,4 +197,22 @@ h2 span {
 .friend-entered .friend-location h2 span {
   display: inline;
   padding-left: 0;
+}
+
+.your-entered .your-location h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.friend-entered .friend-location h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.places-entered .places-search h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
