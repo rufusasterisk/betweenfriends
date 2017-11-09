@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import EndpointSearch from '../../components/EndpointSearch/EndpointSearch';
-import {
-  // updateIndividualLocation,
-  // shouldLoadMap,
-  getMap } from '../../actions/EndpointSearchActions';
+import { getMap } from '../../actions/EndpointSearchActions';
 
 const mapStatetoProps = store => ({
   textLocation: store.friendTextLocation,
@@ -14,12 +11,6 @@ const mapStatetoProps = store => ({
 });
 
 const mapDispatchtoProps = dispatch => ({
-  // updateIndividualLocation: (location, locationType) => {
-  //   dispatch(updateIndividualLocation(location, locationType));
-  // },
-  // shouldLoadMap: (option, locationType) => {
-  //   dispatch(shouldLoadMap(option, locationType));
-  // }
   getMap: (locationString) => {
     dispatch(getMap(locationString, 'friend'));
   }

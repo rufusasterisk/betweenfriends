@@ -7,7 +7,8 @@ import FriendEndpointSearchContainer from
 import PlacesSearchContainer from
   '../../redux-containers/PlacesSearchContainer/PlacesSearchContainer';
 import Header from '../Header/Header';
-import MapContainer from '../../redux-containers/MapContainer/MapContainer';
+import MainMapContainer from
+  '../../redux-containers/MainMapContainer/MainMapContainer';
 
 class App extends Component {
   render() {
@@ -22,7 +23,7 @@ class App extends Component {
             className={'friend-location'}
             locationType={`Friend`} />
           <PlacesSearchContainer />
-          <MapContainer />
+          <MainMapContainer />
         </main>
       </div>
     );

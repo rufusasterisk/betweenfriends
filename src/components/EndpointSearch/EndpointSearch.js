@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { embedAPIKey } from '../../utilities/apiKey';
+import { withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker } from 'react-google-maps';
+import { compose, withProps } from 'recompose';
+import { apiKey, embedAPIKey } from '../../utilities/apiKey';
+// import { embedAPIKey } from '../../utilities/apiKey';
 
 export default class EndpointSearch extends Component {
   constructor(props) {
@@ -29,18 +35,37 @@ export default class EndpointSearch extends Component {
 
   renderMap() {
     if (this.props.displayMap) {
-      return (
-        <iframe
-          width="300"
-          height="200"
-          frameBorder="0" style={{border: 0}}
-          src={`https://www.google.com/maps/embed/v1/place?key=${embedAPIKey}&q=
-          ${this.props.textLocation}`}
-          title={`${this.props.locationType}LocationMap`}>
-        </iframe>
-      );
+      const myThing = compose(
+        withProps({
+          // eslint-disable-next-line max-len
+          googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
+          loadingElement: <div style={{ height: `100%` }} />,
+          containerElement: <div />,
+          mapElement: <div
+            style={{ height: `100%` }}
+            className={'side-google-map'}
+            id={`${this.props.locationType}map`}/>
+        }),
+        withScriptjs,
+        withGoogleMap
+      )((props) =>
+        <div>
+          <GoogleMap
+            defaultZoom={14}
+            center={props.gpsLocation}>
+            <Marker
+              position={props.gpsLocation}
+              label={`${props.textLocation}`}
+              defaultOptions={{
+                // color: 'green'
+              }}
+            />
+          </GoogleMap>
+        </div>);
+      return  myThing(this.props);
     }
   }
+
 
   render() {
     return (
