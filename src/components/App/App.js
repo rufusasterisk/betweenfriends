@@ -45,12 +45,8 @@ class App extends Component {
             className={'friend-location'}
             locationType={`Friend`} />
           <PlacesSearchContainer />
-<<<<<<< HEAD
           <MainMapContainer />
-=======
           <PlacesDisplayContainer />
-          <MapContainer />
->>>>>>> Build test card for styling
         </main>
       </div>
     );
