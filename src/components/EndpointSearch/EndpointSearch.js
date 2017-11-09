@@ -5,8 +5,7 @@ import { withScriptjs,
   GoogleMap,
   Marker } from 'react-google-maps';
 import { compose, withProps } from 'recompose';
-import { apiKey, embedAPIKey } from '../../utilities/apiKey';
-// import { embedAPIKey } from '../../utilities/apiKey';
+import { apiKey } from '../../utilities/apiKey';
 
 export default class EndpointSearch extends Component {
   constructor(props) {
