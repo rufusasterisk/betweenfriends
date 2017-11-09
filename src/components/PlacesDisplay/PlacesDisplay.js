@@ -27,10 +27,10 @@ export const PlacesDisplay = (props) => {
           className='places-card'
           key={place.id}>
           <h3>{place.name}</h3>
+          <p>{place.vicinity}</p>
           <div
             className={`rating ${place.rating}`}>
             Rating: {place.rating || 'N/A'}</div>
-          <p>{place.vicinity}</p>
           {renderOpen(place)}
         </article>
       );
@@ -43,7 +43,9 @@ export const PlacesDisplay = (props) => {
         <section
           className={`places-display show-cards`}>
           <h2>Places</h2>
-          {generateCards()}
+          <div className={'card-container'}>
+            {generateCards()}
+          </div>
         </section>
       );
     } else {
