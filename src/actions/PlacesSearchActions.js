@@ -6,7 +6,7 @@ export const submitPlacesSearch = (searchString, center, radius) =>
   dispatch => {
     const cleanedSearchString = locationCleaner(searchString);
     // eslint-disable-next-line max-len
-    fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?&key=${
+    fetch(`https://galvanize-cors-proxy.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?&key=${
       apiKey}&location=${center.lat},${center.lng}&radius=${
       radius}&keyword=${cleanedSearchString}`
     )
@@ -23,3 +23,5 @@ export const setPlaces = (placesArray) => ({
   type: 'SET_PLACES_ARRAY',
   placesArray
 });
+
+//https://cors-anywhere.herokuapp.com/

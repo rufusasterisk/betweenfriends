@@ -15,7 +15,8 @@ main {
 .your-location {
   border-radius: 30px 30px 0 0;
   position: absolute;
-  background-color: green;
+  /*background-color: green;*/
+  background-color: #FF1745;
   height: 20%;
   width: 20%;
   transform: translate(200%, 85%);
@@ -25,40 +26,74 @@ main {
   align-items: center;
 }
 
-.your-location.entered {
+.friend-entered .your-location {
+  transform: translate(200%, 185%);
+}
+
+.your-entered .your-location {
   height: 100%;
   transform: none;
   transition: height 0.5s, transform 1s;
   /*position: absolute;*/
 }
 
+.your-entered.friend-entered .your-location {
+  height: 55%;
+  padding: 30px 0 0 0;
+
+}
+
 .friend-location {
-  background-color: orange;
+  /*background-color: orange;*/
+  background-color: #FBB13C;
+  /*background-color: #218380;*/
   position: absolute;
-  right: 0;
+  left: 0;
   width: 20%;
   height: 20%;
-  transform: translate(-200%, 185%);
+  transform: translate(200%, 185%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.your-entered .friend-location {
+  border-radius: 30px 30px 0 0;
+}
+
+.friend-entered .friend-location {
+  /*background-color: blue;*/
+  border-radius: 0 0 0 0;
+  height: 100%;
+  transform: none;
+  transition: height 0.5s, transform 1s;
+}
+
+.your-entered.friend-entered .friend-location {
+  height: 45%;
+  top: 55%;
+  /*box-shadow: 5px 0px 20px #aaa;*/
+}
+
 form {
  padding: 5px;
  display: flex;
  flex-direction: column;
+ align-items: center;
+ min-width: 90%;
 }
 
 form input {
-  font-size: 20px;
+  font-size: 24px;
   font-family: BioRhyme;
+  margin: 2px 0 5px 0;
 }
 
 form button {
   font-size: 20px;
   font-family: BioRhyme;
+  max-width: 60%;
 }
 
 form h2 {
@@ -66,7 +101,10 @@ form h2 {
   margin: 0;
   line-height: 1em;
   text-align: left;
-  padding-bottom: 10px;
+  padding: 0 0 10px 30px;
+  min-width: 100%;
+  font-size: 32px;
+  /*padding-bottom: 10px;*/
 }
 
 h5 {
@@ -96,11 +134,15 @@ h5 {
 
 .places-search {
   position: absolute;
-  background-color: #BADA55;
-  z-index: 5;
+  /*background-color: #BADA55;*/
+  /*background: lightblue;*/
+  background-color: #73D2DE;
+  /*z-index: 5;*/
   width: 20%;
-  height: 20%;
-  transform: translate(200%, 285%);
+  height: 19%;
+  top: 0;
+  right: 0;
+  transform: translate(-200%, 285%);
   border-radius: 0 0 30px 30px;
   display: flex;
   flex-direction: column;
@@ -108,17 +150,69 @@ h5 {
   align-items: center;
 }
 
+.your-entered.friend-entered .places-search {
+  border-radius: 30px;
+}
+
+.your-entered.friend-entered.places-entered .places-search {
+  transform: none;
+  transition: transform 1s;
+  border-radius: 0px;
+  padding-right: 5px;
+  border-bottom: 4px solid black;
+}
+
 .main-map {
   background-color: #eef;
   margin: auto;
   min-height: 100%;
-  width: 60%;
+  /*width: 60%;*/
+  width: 100%;
   position: relative;
   z-index: -1;
-
 }
+
+/*.your-entered .main-map,
+.friend-entered .main-map {
+  margin-left: auto;
+  margin-right: 0;
+  width: 80%;
+}*/
+
+/*.your-entered.friend-entered .main-map {
+  margin: auto;
+  width: 60%;
+}*/
 
 h2 span {
   display: block;
   padding-left: 30px;
+}
+
+.your-entered .your-location h2 span {
+  display: inline;
+  padding-left: 0;
+}
+
+.friend-entered .friend-location h2 span {
+  display: inline;
+  padding-left: 0;
+}
+
+.your-entered .your-location h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.friend-entered .friend-location h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.places-entered .places-search h2 {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }

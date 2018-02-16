@@ -75,7 +75,8 @@ export default class EndpointSearch extends Component {
           <h2>{this.props.locationType}<span> Location</span></h2>
           <input
             onChange={this.handleChange}
-            value={this.state.searchField} />
+            value={this.state.searchField}
+            placeholder={'Enter an address or place'}/>
           <button
             onClick={this.getData}>Find Location</button>
         </form>
