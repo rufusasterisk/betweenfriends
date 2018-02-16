@@ -32,8 +32,7 @@ const MyMapComponent = compose(
   withGoogleMap
 )((props) =>
   <GoogleMap
-    defaultZoom={11}
-    defaultCenter={{ lat: 39.7392358, lng: -104.990251 }}
+    defaultZoom={props.defaultZoom}
     center={props.gpsLocations.main}
     ref={(map) => {
       if (props.isMarkerShown && map) {
@@ -89,7 +88,8 @@ MyMapComponent.propTypes = {
   displayYourMap: PropTypes.bool,
   displayFriendMap: PropTypes.bool,
   mapBounds: PropTypes.object,
-  gpsLocations: PropTypes.object
+  gpsLocations: PropTypes.object,
+  defaultZoom: PropTypes.number
 };
 
 export default MyMapComponent;

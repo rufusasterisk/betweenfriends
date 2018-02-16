@@ -26,6 +26,7 @@ export default class MainMap extends Component {
     return (
       <section className='main-map'>
         <MyMapComponent
+          defaultZoom={11}
           isMarkerShown={this.props.displayMainMap}
           vincentyDistance={this.props.vincentyDistance}
           displayYourMap={this.props.displayYourMap}
